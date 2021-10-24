@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 2;
+
+  &__nav {
+    padding: 20px 0;
+
+    &--list {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      justify-content: space-between;
+
+      &-item {
+        transition: 250ms;
+        border-bottom: 1px solid transparent;
+        &:hover {
+          border-bottom: 1px solid black;
+        }
+      }
+
+      &-link {
+        color: black;
+        text-decoration: none;
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
+.section {
+  min-height: 100vh;
+}
+
+.main {
+  background: linear-gradient(to right, #ffffff, rgba(172, 215, 255, 0.5));
+}
+
+.message {
+  padding-top: 50vh;
+  position: relative;
+  // background-image: url("./assets/accountant.png");
+  // background-repeat: no-repeat;
+  // background-position: right bottom -10vh;
+  // background-size: contain;
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 90vh;
+    object-fit: contain;
+    pointer-events: none;
+  }
+
+  &__title {
+    font-size: 38px;
+
+    & > span {
+      display: block;
+      font-size: 24px;
+    }
+  }
+
+  &__contact {
+    padding-top: 10vh;
+    &--title {
+      font-size: 28px;
+    }
+
+    &--form {
+      margin-top: 40px;
+      &-input {
+        outline: none;
+        border: none;
+        border-radius: 24px;
+        padding: 16px 24px;
+        box-shadow: 5px 5px 10px rgba(182, 182, 182, 0.3);
+        margin-right: 32px;
+        font-size: 24px;
+      }
+
+      &-btn {
+        z-index: 2;
+        border-radius: 24px;
+        padding: 16px 24px;
+        border: none;
+        background-color: lightblue;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+
+        transition: 250ms;
+
+        &:hover {
+          box-shadow: 5px 5px 10px rgba(182, 182, 182, 0.6);
+        }
+      }
+    }
+  }
+}
+
+.about {
+  padding-top: 120px;
+  padding-bottom: 60px;
+
+  &__title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 16px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__full {
+    font-size: 24px;
+    padding-top: 48px;
+  }
+
+  &__list {
+    margin-left: 40px;
+    &--item {
+      font-size: 24px;
+      padding-top: 16px;
+    }
+  }
+}
+
+.howitworks {
+  padding-top: 60px;
+
+  &__title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  &__content {
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 60px;
+    grid-row-gap: 60px;
+
+    &--item {
+      &-title {
+        font-size: 24px;
+        font-weight: 800;
+        padding-bottom: 16px;
+      }
+      &-text {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.services {
+  padding-top: 120px;
+
+  &__title {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  &__item {
+    &--wrapper {
+      display: flex;
+      background-color: rgb(172, 215, 255);
+      padding: 24px 32px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+
+      &-inner {
+        width: 100%;
+        display: flex;
+      }
+    }
+
+    &--optional {
+      flex: 1;
+      padding-top: 16px;
+      margin-top: 16px;
+      border-top: 1px solid black;
+
+      &-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      &-list {
+        margin-left: 20px;
+      }
+    }
+
+    &--title {
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: 800;
+      flex: 1;
+    }
+
+    &--text {
+      font-size: 18px;
+      flex: 2;
+    }
+  }
+}
