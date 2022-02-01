@@ -149,7 +149,8 @@
 }
 
 .howitworks {
-  padding-top: 60px;
+  display: flex;
+  align-items: center;
 
   &__title {
     font-size: 32px;
@@ -192,10 +193,17 @@
       padding: 24px 32px;
       margin-bottom: 32px;
       flex-wrap: wrap;
+      overflow: hidden;
 
       &-inner {
         width: 100%;
         display: flex;
+        max-height: 500px;
+        transition: max-height 250ms linear;
+
+        &.closed {
+          max-height: 0;
+        }
       }
     }
 
@@ -204,6 +212,10 @@
       padding-top: 16px;
       margin-top: 16px;
       border-top: 1px solid black;
+      transition: border 250ms linear;
+      &.closed {
+        border-top: 1px solid transparent;
+      }
 
       &-title {
         font-size: 20px;
