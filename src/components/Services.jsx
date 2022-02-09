@@ -1,11 +1,23 @@
 import { ServicesItem } from "./ServicesItem";
 
+const {
+  data: { services },
+} = require("../data.json");
+
 export const Services = () => {
   return (
     <section id="services" className="section services">
-      <h2 className="services__title">Послуги</h2>
+      <h2 className="services__title">{services.title}</h2>
       <div className="services__container">
-        <ServicesItem
+        {services.data.map((servicesEl) => {
+          return (
+            <ServicesItem
+              title={servicesEl.title}
+              subdata={servicesEl.subdata}
+            />
+          );
+        })}
+        {/* <ServicesItem
           title="Комплексний бухгалтерський аутсорсинг"
           text="пшыщорепжщшкгерщ"
           optionals={[
@@ -62,7 +74,7 @@ export const Services = () => {
             Супровід податкових перевірок
           </div>
           <div className="services__item--text">пшыщорепжщшкгерщ</div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

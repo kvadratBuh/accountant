@@ -1,48 +1,45 @@
 import { useState } from "react";
 
-export const ServicesItem = ({ title, text, optionals }) => {
+export const ServicesItem = ({ title, subdata }) => {
   const [isOpen, setIsOpen] = useState(false);
   const getStyle = (style) => (isOpen ? style : `${style} closed`);
   return (
+    <div className="services__item">
+      <div
+        className={getStyle("services__item--title")}
+        onClick={() => setIsOpen((p) => !p)}
+      >
+        {title}
+      </div>
+      {subdata.map((subEl) => {
+        return (
+          <SubServicesItem
+            title={subEl.title}
+            optionals={subEl.optionals}
+            getStyle={getStyle}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+const SubServicesItem = ({ title, optionals, getStyle }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const getOptionalsStyle = (style) =>
+    isOpen ? style : `${style} closed-optional`;
+  return (
     <div
-      className="services__item--wrapper"
+      className={getStyle("services__item--sub")}
       onClick={() => setIsOpen((p) => !p)}
     >
-      <div className="services__item--title">{title}</div>
-      <div className="services__item--text">{text}</div>
-      {optionals && optionals.length ? (
-        <div className={getStyle("services__item--wrapper-inner")}>
-          {optionals && optionals.length ? (
-            <div className={getStyle("services__item--wrapper-inner")}>
-              {optionals.map((option, ind) => {
-                return (
-                  <div
-                    key={ind.toString()}
-                    className={getStyle("services__item--optional")}
-                  >
-                    <h3 className="services__item--optional-title">
-                      {option.title}
-                    </h3>
-                    {option.list?.length ? (
-                      <ul className="services__item--optional-list">
-                        {option.list.map((el, ind2) => {
-                          return (
-                            <li
-                              key={`${ind}-${ind2}`}
-                              className="services__item--optional-listitem"
-                            >
-                              {el}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    ) : null}
-                  </div>
-                );
-              })}
-            </div>
-          ) : null}
-        </div>
+      <div className="services__item--sub-title">{title}</div>
+      {optionals ? (
+        <ul className={getOptionalsStyle("services__item--optionals")}>
+          {optionals.map((optional) => (
+            <li className="services__item--optionals-item">{optional}</li>
+          ))}
+        </ul>
       ) : null}
     </div>
   );
