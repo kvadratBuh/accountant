@@ -3,7 +3,7 @@ const {
 } = require("../data.json");
 
 export const HowItWorks = () => (
-  <section className="section howitworks">
+  <section id="howitworks" className="section howitworks">
     <div className="howitworks__wrapper">
       <h2 className="howitworks__title">{howitworks.title}</h2>
       <div className="howitworks__content">

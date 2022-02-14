@@ -1,14 +1,28 @@
 import { useState } from "react";
 
+const TOP_OFFSET = 120;
+
 export const ServicesItem = ({ title, subdata }) => {
   const [isOpen, setIsOpen] = useState(false);
   const getStyle = (style) => (isOpen ? style : `${style} closed`);
+
+  const handleClick = (e) => {
+    const { pageY } = e;
+
+    setIsOpen((p) => {
+      if (!p) {
+        setTimeout(
+          () =>
+            window.scrollTo({ top: pageY + TOP_OFFSET, behavior: "smooth" }),
+          100
+        );
+      }
+      return !p;
+    });
+  };
   return (
     <div className="services__item">
-      <div
-        className={getStyle("services__item--title")}
-        onClick={() => setIsOpen((p) => !p)}
-      >
+      <div className={getStyle("services__item--title")} onClick={handleClick}>
         {title}
       </div>
       {subdata.map((subEl) => {
