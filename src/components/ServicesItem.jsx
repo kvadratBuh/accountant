@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TOP_OFFSET = 120;
+const TOP_OFFSET = 160;
 
 export const ServicesItem = ({ title, subdata }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ export const ServicesItem = ({ title, subdata }) => {
       if (!p) {
         setTimeout(
           () =>
-            window.scrollTo({ top: pageY + TOP_OFFSET, behavior: "smooth" }),
+            window.scrollTo({ top: pageY - TOP_OFFSET, behavior: "smooth" }),
           100
         );
       }
