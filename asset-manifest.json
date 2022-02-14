@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/accountant/static/css/main.7748ac15.chunk.css",
-    "main.js": "/accountant/static/js/main.1d19ee1b.chunk.js",
-    "main.js.map": "/accountant/static/js/main.1d19ee1b.chunk.js.map",
+    "main.css": "/accountant/static/css/main.861d73a4.chunk.css",
+    "main.js": "/accountant/static/js/main.31ce712d.chunk.js",
+    "main.js.map": "/accountant/static/js/main.31ce712d.chunk.js.map",
     "runtime-main.js": "/accountant/static/js/runtime-main.ea07d93d.js",
     "runtime-main.js.map": "/accountant/static/js/runtime-main.ea07d93d.js.map",
-    "static/js/2.4b4c5d29.chunk.js": "/accountant/static/js/2.4b4c5d29.chunk.js",
-    "static/js/2.4b4c5d29.chunk.js.map": "/accountant/static/js/2.4b4c5d29.chunk.js.map",
+    "static/js/2.3920cdd1.chunk.js": "/accountant/static/js/2.3920cdd1.chunk.js",
+    "static/js/2.3920cdd1.chunk.js.map": "/accountant/static/js/2.3920cdd1.chunk.js.map",
     "index.html": "/accountant/index.html",
-    "static/css/main.7748ac15.chunk.css.map": "/accountant/static/css/main.7748ac15.chunk.css.map",
-    "static/js/2.4b4c5d29.chunk.js.LICENSE.txt": "/accountant/static/js/2.4b4c5d29.chunk.js.LICENSE.txt",
+    "static/css/main.861d73a4.chunk.css.map": "/accountant/static/css/main.861d73a4.chunk.css.map",
+    "static/js/2.3920cdd1.chunk.js.LICENSE.txt": "/accountant/static/js/2.3920cdd1.chunk.js.LICENSE.txt",
     "static/media/accountant.b6a66791.png": "/accountant/static/media/accountant.b6a66791.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ea07d93d.js",
-    "static/js/2.4b4c5d29.chunk.js",
-    "static/css/main.7748ac15.chunk.css",
-    "static/js/main.1d19ee1b.chunk.js"
+    "static/js/2.3920cdd1.chunk.js",
+    "static/css/main.861d73a4.chunk.css",
+    "static/js/main.31ce712d.chunk.js"
   ]
 }
