@@ -50,9 +50,22 @@ const SubServicesItem = ({ title, optionals, getStyle }) => {
       <div className="services__item--sub-title">{title}</div>
       {optionals ? (
         <ul className={getOptionalsStyle("services__item--optionals")}>
-          {optionals.map((optional) => (
-            <li className="services__item--optionals-item">{optional}</li>
-          ))}
+          {optionals.map((optional) =>
+            typeof optional === "string" ? (
+              <li className="services__item--optionals-item">{optional}</li>
+            ) : (
+              <li className="services__item--optionals-item">
+                <div className=" services__item--optionals-item--withdesc">
+                  <span>{optional.title}</span>
+                  <ul className="services__item--optionals-item--withdesc-desc">
+                    {optional.desc.map((descEl) => (
+                      <li>{descEl}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            )
+          )}
         </ul>
       ) : null}
     </div>

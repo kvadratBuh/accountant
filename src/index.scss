@@ -206,7 +206,7 @@
     &--sub {
       cursor: pointer;
       margin: 16px;
-      max-height: 500px;
+      max-height: 1400px;
       transition: all 200ms linear;
       & > div,
       ul {
@@ -233,10 +233,27 @@
       }
     }
     &--optionals {
-      max-height: 500px;
+      max-height: 1400px;
       list-style-type: "- ";
       margin-left: 16px;
       transition: all 200ms linear;
+      pointer-events: none;
+
+      &-item {
+        padding: 8px 0;
+      }
+
+      &-item--withdesc {
+        display: flex;
+        flex-direction: row;
+        &-desc {
+          margin-left: 32px;
+        }
+
+        & > span {
+          min-width: 30%;
+        }
+      }
 
       & > li {
         opacity: 1;
@@ -244,8 +261,12 @@
         transition: all 200ms linear;
         font-size: 20px;
       }
+      &.closed-optional &-item {
+        padding: 0 0;
+      }
       &.closed-optional {
         max-height: 0;
+
         & > li {
           opacity: 0;
           visibility: hidden;
