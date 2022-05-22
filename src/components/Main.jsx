@@ -1,4 +1,5 @@
 import { AboutUs } from "./AboutUs";
+import { Contacts } from "./Contacts";
 import { HowItWorks } from "./HowItWorks";
 import { Message } from "./Message";
 import { Services } from "./Services";
@@ -11,6 +12,7 @@ export const Main = () => {
         <AboutUs />
         <HowItWorks />
         <Services />
+        <Contacts />
       </div>
     </main>
   );

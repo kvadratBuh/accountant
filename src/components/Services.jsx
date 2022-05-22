@@ -12,6 +12,7 @@ export const Services = () => {
         {services.data.map((servicesEl) => {
           return (
             <ServicesItem
+              key={servicesEl.title}
               title={servicesEl.title}
               subdata={servicesEl.subdata}
             />

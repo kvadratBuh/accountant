@@ -1,9 +1,12 @@
 {
+  "header": {
+    "title": "БЮРО БУХГАЛТЕРСЬКИХ ПОСЛУГ КАПІТАЛ"
+  },
   "menu": {
     "main": "Головна",
     "about_us": "Про нас",
-    "services": "Послуги",
     "howitworks": "Як це працює",
+    "services": "Послуги",
     "contacts": "Контакти",
     "price": "Ціна"
   },
@@ -240,6 +243,13 @@
           ]
         }
       ]
+    },
+    "contacts": {
+      "title": "ББП КАПІТАЛ",
+      "data": {
+        "phonenumber": "+38-050-202-45-14",
+        "email": "bbpkapital@gmail.com"
+      }
     }
   }
 }

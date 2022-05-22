@@ -28,6 +28,7 @@ export const ServicesItem = ({ title, subdata }) => {
       {subdata.map((subEl) => {
         return (
           <SubServicesItem
+            key={subEl.title}
             title={subEl.title}
             optionals={subEl.optionals}
             getStyle={getStyle}
@@ -47,19 +48,27 @@ const SubServicesItem = ({ title, optionals, getStyle }) => {
       className={getStyle("services__item--sub")}
       onClick={() => setIsOpen((p) => !p)}
     >
-      <div className="services__item--sub-title">{title}</div>
+      <div className="services__item--sub-title">
+        {getDivider(isOpen, optionals?.length)}
+        {title}
+      </div>
       {optionals ? (
         <ul className={getOptionalsStyle("services__item--optionals")}>
           {optionals.map((optional) =>
             typeof optional === "string" ? (
-              <li className="services__item--optionals-item">{optional}</li>
+              <li key={optional} className="services__item--optionals-item">
+                {optional}
+              </li>
             ) : (
-              <li className="services__item--optionals-item">
+              <li
+                key={optional.title}
+                className="services__item--optionals-item"
+              >
                 <div className=" services__item--optionals-item--withdesc">
                   <span>{optional.title}</span>
                   <ul className="services__item--optionals-item--withdesc-desc">
                     {optional.desc.map((descEl) => (
-                      <li>{descEl}</li>
+                      <li key={descEl.toString()}>{descEl}</li>
                     ))}
                   </ul>
                 </div>
@@ -71,3 +80,10 @@ const SubServicesItem = ({ title, optionals, getStyle }) => {
     </div>
   );
 };
+
+function getDivider(isOpen, optionsLength) {
+  if (!optionsLength) {
+    return "";
+  }
+  return isOpen ? "- " : "+ ";
+}
