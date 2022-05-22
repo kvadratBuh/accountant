@@ -5,7 +5,8 @@ const {
 
 export const Message = () => {
   const handleOpenContacts = () => {
-    document.location.href = document.location.origin + "#contacts";
+    document.location.href =
+      document.location.origin + document.location.pathname + "#contacts";
   };
   return (
     <section id="main" className="section message">
