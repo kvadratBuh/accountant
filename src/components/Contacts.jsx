@@ -12,16 +12,7 @@ export const Contacts = () => {
           >
             {data.contacts.data.phonenumber}
           </a>
-          <form
-            method="POST"
-            action={`mailto:${data.contacts.data.email}`}
-            encType="text/plain"
-            className="contacts__data--email"
-          >
-            <button className="contacts__data--email-btn">
-              {data.contacts.data.email}
-            </button>
-          </form>
+          <p className="contacts__data--email">{data.contacts.data.email}</p>
         </div>
       </div>
     </section>

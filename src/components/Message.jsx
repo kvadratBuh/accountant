@@ -4,10 +4,6 @@ const {
 } = require("../data.json");
 
 export const Message = () => {
-  const handleOpenContacts = () => {
-    document.location.href =
-      document.location.origin + document.location.pathname + "#contacts";
-  };
   return (
     <section id="main" className="section message">
       <img src={bgImage} alt="accountant" className="message__image" />
@@ -19,12 +15,17 @@ export const Message = () => {
       <div className="message__contact">
         <p className="message__contact--title">{message.contact.title}</p>
 
-        <button
-          onClick={handleOpenContacts}
-          className="message__contact--form-btn"
-        >
-          {message.contact.button}
-        </button>
+        <form method="POST" name="contactme" className="message__contact--form">
+          <input type="hidden" name="form-name" value="contactme" />
+          <input
+            className="message__contact--form-input"
+            type="email"
+            name="email"
+          />
+          <button type="submit" className="message__contact--form-btn">
+            {message.contact.button}
+          </button>
+        </form>
       </div>
     </section>
   );

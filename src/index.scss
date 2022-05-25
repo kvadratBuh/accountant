@@ -309,17 +309,11 @@
     }
 
     &--email {
-      &-btn {
-        color: rgb(46, 150, 247);
-        padding: 8px 0;
-        cursor: pointer;
-        font-size: 24px;
-        text-align: center;
-        background: none;
-        outline: none;
-        border: none;
-        text-decoration: underline;
-      }
+      color: rgb(46, 150, 247);
+      padding: 8px 0;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: underline;
     }
   }
 }
