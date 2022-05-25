@@ -5,7 +5,7 @@ const {
 } = require("../data.json");
 
 export const Message = () => {
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
