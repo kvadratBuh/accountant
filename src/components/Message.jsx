@@ -1,9 +1,14 @@
+import { useState } from "react";
 import bgImage from "../assets/accountant.png";
 const {
   data: { message },
 } = require("../data.json");
 
 export const Message = () => {
+  const [email, setEmail] = useState();
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
   return (
     <section id="main" className="section message">
       <img src={bgImage} alt="accountant" className="message__image" />
@@ -21,8 +26,14 @@ export const Message = () => {
             className="message__contact--form-input"
             type="email"
             name="email"
+            value={email}
+            onChange={handleChange}
           />
-          <button type="submit" className="message__contact--form-btn">
+          <button
+            disabled={!email.length}
+            type="submit"
+            className="message__contact--form-btn"
+          >
             {message.contact.button}
           </button>
         </form>
