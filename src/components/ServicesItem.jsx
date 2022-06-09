@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const TOP_OFFSET = 160;
+const TOP_OFFSET = 220;
 
 export const ServicesItem = ({ title, subdata }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openItems, setOpenItems] = useState({});
+  useEffect(() => {
+    const items = {};
+    subdata.forEach((el, index) => {
+      items[index] = false;
+    });
+    setOpenItems(items);
+  }, []);
   const getStyle = (style) => (isOpen ? style : `${style} closed`);
 
   const handleClick = (e) => {
@@ -11,11 +19,14 @@ export const ServicesItem = ({ title, subdata }) => {
 
     setIsOpen((p) => {
       if (!p) {
-        setTimeout(
-          () =>
-            window.scrollTo({ top: pageY - TOP_OFFSET, behavior: "smooth" }),
-          100
-        );
+        const newItems = {};
+        for (let item in openItems) {
+          newItems[item] = false;
+        }
+        setOpenItems(newItems);
+        setTimeout(() => {
+          window.scrollTo({ top: pageY - TOP_OFFSET, behavior: "smooth" });
+        }, 100);
       }
       return !p;
     });
@@ -25,13 +36,16 @@ export const ServicesItem = ({ title, subdata }) => {
       <div className={getStyle("services__item--title")} onClick={handleClick}>
         {title}
       </div>
-      {subdata.map((subEl) => {
+      {subdata.map((subEl, index) => {
         return (
           <SubServicesItem
             key={subEl.title}
             title={subEl.title}
             optionals={subEl.optionals}
             getStyle={getStyle}
+            index={index}
+            setOpenItems={setOpenItems}
+            openItems={openItems}
           />
         );
       })}
@@ -39,14 +53,64 @@ export const ServicesItem = ({ title, subdata }) => {
   );
 };
 
-const SubServicesItem = ({ title, optionals, getStyle }) => {
+const SubServicesItem = ({
+  title,
+  optionals,
+  getStyle,
+  index,
+  setOpenItems,
+  openItems,
+}) => {
+  const serviceItemRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(openItems[index]);
+  }, [openItems, index]);
+
   const getOptionalsStyle = (style) =>
     isOpen ? style : `${style} closed-optional`;
+
+  const handleClick = (e) => {
+    setOpenItems((prevItems) => {
+      const newItems = {};
+      let val = false;
+      Object.entries(prevItems).forEach(([key, entry]) => {
+        if (!val) {
+          val = Number(key) === index ? !entry : false;
+        }
+        newItems[key] = Number(key) === index ? !entry : false;
+      });
+
+      if (val) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: serviceItemRef.current.offsetTop - TOP_OFFSET,
+            behavior: "smooth",
+          });
+        }, 300);
+      }
+
+      return newItems;
+    });
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      serviceItemRef.current.style.setProperty(
+        "--clientHeight",
+        serviceItemRef.current.clientHeight < 200
+          ? 1000
+          : serviceItemRef.current.clientHeight + "px"
+      );
+    }, 300);
+  }, [isOpen]);
+
   return (
     <div
+      ref={serviceItemRef}
       className={getStyle("services__item--sub")}
-      onClick={() => setIsOpen((p) => !p)}
+      onClick={handleClick}
     >
       <div className="services__item--sub-title">
         {getDivider(isOpen, optionals?.length)}

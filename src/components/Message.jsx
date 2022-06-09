@@ -26,6 +26,7 @@ export const Message = () => {
             className="message__contact--form-input"
             type="email"
             name="email"
+            placeholder="mail@mail.com"
             value={email}
             onChange={handleChange}
           />
